@@ -3,12 +3,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-export interface AuthState {
+export interface configState {
  
 }
 
-const initialState: AuthState = {
-  queueNo: '',
+const initialState: configState = {
+  queueNo: [],
   isLoading: false,
   isError: false,
 };

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/layouts/Header";
 import "./App.css";
 import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { blue } from "@mui/material/colors";
-
+import { useSelector } from "react-redux";
+import { configSelector, getConfigs } from "./store/slices/configSlice";
+import { useAppDispatch } from "./store/store";
 function App() {
   const theme = createTheme({
     components: {
@@ -40,13 +42,27 @@ function App() {
       },
     },
   });
+  const configReducer = useSelector(configSelector);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getConfigs());
+  }, [dispatch]);
+
   return (
     <ThemeProvider theme={theme}>
       <Header />
       <Box component="main" sx={{ p: 3 }}>
-        <p>Hello Queue Systems</p>
-        <p>Hello</p>
-        <p>Hello</p>
+        {configReducer.menu &&
+          configReducer.menu.map((result: any, index: number) => {
+            return (
+              <p
+                key={index}
+                style={{ backgroundColor: result.color_btn, padding: 10 }}
+              >
+                {result.name}
+              </p>
+            );
+          })}
       </Box>
     </ThemeProvider>
   );

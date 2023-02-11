@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import queueReducer from "./slices/queueSlice";
-
-const reducer = { queueReducer };
+import counterReducer from "./slices/counterSlice"
+import configReducer from './slices/configSlice'
+const reducer = { queueReducer, counterReducer, configReducer };
 
 export const store = configureStore({
   reducer,

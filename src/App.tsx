@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import Header from "./components/layouts/Header";
 import "./App.css";
-import { Box, createTheme, ThemeProvider } from "@mui/material";
+import { Box, Container, createTheme, ThemeProvider } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import { useSelector } from "react-redux";
 import { configSelector, getConfigs } from "./store/slices/configSlice";
 import { useAppDispatch } from "./store/store";
+import { Home } from "@mui/icons-material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/pages/Dashboard";
+import QueueHome from "./components/pages/QueueHome";
+import Rooms from "./components/pages/Rooms";
+import RoomSelected from "./components/pages/RoomSelected";
 function App() {
+  // console.log(import.meta.env.VITE_HOST_DEV)
   const theme = createTheme({
     components: {
       // MuiButton: {
@@ -51,7 +58,20 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <Box component="main" sx={{ p: 3 }}>
+      <Container maxWidth={false} >
+      
+      
+        {/* <Box paddingTop={8}/> */}
+        {/* <Box sx={{ p: 0 }}> */}
+        <Routes>
+          <Route path="/" element={<FristPage />}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/queuehome" element={<QueueHome />}/>
+          <Route path="/rooms" element={<Rooms />}/>
+          <Route path="/room/:id" element={<RoomSelected />}/>
+
+        </Routes>
+      {/*
         {configReducer.menu &&
           configReducer.menu.map((result: any, index: number) => {
             return (
@@ -63,9 +83,18 @@ function App() {
               </p>
             );
           })}
-      </Box>
+      */}
+      {/* </Box>  */}
+      </Container>
+
     </ThemeProvider>
   );
+}
+
+const FristPage =()=>{
+  return (
+    <h1 style={{ textAlign : 'center'}}>Hello World!</h1>
+  )
 }
 
 export default App;

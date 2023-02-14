@@ -6,7 +6,7 @@ import { apiUrl, server } from "../../constants";
 import { RootState } from "../store";
 
 export interface configState {
-    menu: any;
+    menu: string[]
     isError : boolean
 }
 
@@ -32,7 +32,7 @@ const  configSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getConfigs.fulfilled, (state, action) => {
         state.menu = action.payload;
-    });
+    })
   },
 });
 

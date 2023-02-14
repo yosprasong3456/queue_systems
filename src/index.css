@@ -1,2 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap');
+body {
+  background-color:white;
+  margin: 0;
+  padding: 0;
+}
 
+
+.clock-wrapper {
+  /* position: absolute; */
+  /* right: 0; */
+  /* height: var(--header-height); */
+  font-weight: 800;
+  padding: 2rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-wrapper span {
+  padding: 0 2px;
+  margin: 2px 0;
+  font-size: 5rem;
+  position: relative;
+  top: -0.2rem;
+  /* border: 2px solid black; */
+}
+
+.clock-wrapper span:nth-child(2) {
+  animation: secondBlink 1s infinite;
+  top: -0.1em;
+}
+
+@keyframes secondBlink {
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}

@@ -35,7 +35,7 @@ export const getAllDelete = createAsyncThunk("queue/getAllDelete", async () => {
   throw Error();
 });
 
-export const cancelQueue = createAsyncThunk("queue/cancelQueue", async (params) => {
+export const cancelQueue = createAsyncThunk("queue/cancelQueue", async (params : any) => {
   const { data } = await axios.put(apiUrl + server.DELETE_QUEUE,params);
   if (data.message === "success") {
     const ressult = await axios.get(apiUrl + server.DELETE_QUEUE);

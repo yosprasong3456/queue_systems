@@ -1,7 +1,7 @@
 
 // export const apiUrl = "https://opd-queue.udch.work/api";
-// export const apiUrl = "http://localhost/opd_queue_api";
-export const apiUrl =  import.meta.env.MODE === 'development' ? import.meta.env.VITE_HOST_DEV : import.meta.env.VITE_HOST
+export const apiUrl = "http://localhost/opd_queue_api";
+// export const apiUrl =  import.meta.env.MODE === 'development' ? import.meta.env.VITE_HOST_DEV : import.meta.env.VITE_HOST
 
 // export const imageUrl = "http://localhost:8081";
 

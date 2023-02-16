@@ -14,6 +14,7 @@ import {
   Dialog,
   DialogContent,
   DialogContentText,
+  Divider,
   Typography,
 } from "@mui/material";
 type Props = {};
@@ -87,8 +88,8 @@ function PrintQ({}: Props) {
               >
                 <img src="/src/assets/fulludch.png" width={180} />
                 {/* <Typography>โรงพยาบาลมะเร็งอุดรธานี</Typography> */}
-                <hr />
-                <Typography>{queuereducer.dataPrint.type}</Typography>
+                <Divider />
+                <Typography marginTop={1}>{queuereducer.dataPrint.type}</Typography>
                 <Typography>ช่องบริการ : {queuereducer.dataPrint.room}</Typography>
 
                 <Typography variant="h2" fontWeight={800}>

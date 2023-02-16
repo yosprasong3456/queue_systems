@@ -8,8 +8,8 @@ export const apiUrl =  import.meta.env.MODE === 'development' ? import.meta.env.
 export const server = {
   CONFIG: `/opdConfigMenu.php`,
   GET_QUEUE: `/opdQueue.php`,
-  // REGISTER_URL: `register`,
-  // PRODUCT_URL: `product`,
+  CALL_QUEUE: `/opdCallQ.php`,
+  DELETE_QUEUE: `/opdDeleteQueue.php`,
   // TRANSACTION_URL: `transaction`,
   // REPORT_URL: `report`,
   // TOKEN_KEY: `token`,

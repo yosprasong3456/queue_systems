@@ -13,6 +13,7 @@ import axios from "axios";
 import { apiUrl, server } from "../../constants";
 import {
   getAllQueue,
+  insertQueue,
   queueSelector,
   setDataPrint,
   setModalPrint,
@@ -31,30 +32,20 @@ const QueueHome = (props: Props) => {
   }, [dispatch]);
 
   const addQueue = async (params: string, name: string, id: string) => {
-    dispatch(getAllQueue());
-    const dataSet = {
-      type: params,
-    };
-    const { data } = await axios.post(apiUrl + server.GET_QUEUE, dataSet);
-    if (data.message === "success") {
-      dispatch(setModalPrint(true));
-      const setQueuePrint = {
-        queue: data.data,
-        type: name,
-        room : id,
-      };
-      dispatch(setDataPrint(setQueuePrint));
-      console.log(data.data);
-      return;
+    const data = {
+      type : params,
+      typename : name,
+      id : id
     }
-    throw Error();
+    dispatch(getAllQueue());
+    dispatch(insertQueue(data));
   };
   return (
     <Box textAlign="center" margin="auto" width="60%">
       <Box marginTop={8} />
       {configReducer.menu &&
         configReducer.menu
-          .filter((data: any) => data.id != "77" || data.actived != "0")
+          .filter((data: any) => data.id != "77" && data.actived != "0")
           .map((val: any, index) => {
             return (
               <Box
@@ -66,7 +57,6 @@ const QueueHome = (props: Props) => {
                   borderRadius: 5
                 }}
                 boxShadow={3}
-                // elevation={0}
                 onClick={() => addQueue(val.id, val.name, val.id)}
               >
                 <Grid container spacing={2}>

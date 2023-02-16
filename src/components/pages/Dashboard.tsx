@@ -1,9 +1,10 @@
 import { Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { configSelector, getConfigs } from "../../store/slices/configSlice";
-import { getAllQueue, queueSelector } from "../../store/slices/queueSlice";
+import { configSelector, getConfigs, getConfigSound } from "../../store/slices/configSlice";
+import { getAllQueue, getCallQueue, queueSelector } from "../../store/slices/queueSlice";
 import { useAppDispatch } from "../../store/store";
+import CallAudio from "../CallAudio";
 import Qtable from "../Qtable";
 
 type Props = {};
@@ -21,11 +22,20 @@ const Dashboard = (props: Props) => {
   }, [dispatch]);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+        dispatch(getCallQueue());
+      // }
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [dispatch, queuereducer.modalCall, queuereducer.showQueue]);
+
+  useEffect(() => {
     const id = setInterval(() => {
       console.log('getQ')
       dispatch(getAllQueue()); // <-- (3) invoke in interval callback
+      dispatch(getConfigSound());
     }, 10000);
-  
+    dispatch(getConfigSound());
     dispatch(getAllQueue()); // <-- (2) invoke on mount
   
     return () => clearInterval(id);
@@ -34,7 +44,7 @@ const Dashboard = (props: Props) => {
 
   useEffect(() => {
     if(configReducer.menu){
-      let result : any = configReducer.menu.filter((data : any)=> data.id != '77' || data.actived != '0')
+      let result : any = configReducer.menu.filter((data : any)=> data.id != '77' && data.actived != '0')
       console.log(queuereducer.queueAll)
       setMenu(result)
     }
@@ -66,24 +76,9 @@ const Dashboard = (props: Props) => {
               </Grid>
             );
           })}
-        {/* <Grid item xs>
-          <Qtable />
-        </Grid>
-        <Grid item xs>
-          <Qtable />
-        </Grid>
-        <Grid item xs>
-          <Qtable />
-        </Grid>
-        <Grid item xs>
-          <Qtable />
-        </Grid> */}
       </Grid>
+      <CallAudio dashboard="1" soundConfig={configReducer.soundConfig.actived}/>
     </div>
-
-    // <div>
-    //
-    // </div>
   );
 };
 

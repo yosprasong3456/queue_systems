@@ -12,6 +12,8 @@ import Dashboard from "./components/pages/Dashboard";
 import QueueHome from "./components/pages/QueueHome";
 import Rooms from "./components/pages/Rooms";
 import RoomSelected from "./components/pages/RoomSelected";
+import Admin from "./components/pages/Admin";
+import AdminDelete from "./components/pages/AdminDelete";
 function App() {
   // console.log(import.meta.env.VITE_HOST_DEV)
   const theme = createTheme({
@@ -69,7 +71,9 @@ function App() {
           <Route path="/queuehome" element={<QueueHome />}/>
           <Route path="/rooms" element={<Rooms />}/>
           <Route path="/room/:id" element={<RoomSelected />}/>
-
+          <Route path="/admin" element={<Admin />}/>
+          <Route path="/admin/delete" element={<AdminDelete />}/>
+          
         </Routes>
       {/*
         {configReducer.menu &&

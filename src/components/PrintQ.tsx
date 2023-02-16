@@ -86,7 +86,7 @@ function PrintQ({}: Props) {
               <DialogContentText
                 style={{ textAlign: "center", color: "black" }}
               >
-                <img src="/public/fulludch.png" width={180} />
+                <img src="fulludch.png" width={180} />
                 {/* <Typography>โรงพยาบาลมะเร็งอุดรธานี</Typography> */}
                 <Divider />
                 <Typography marginTop={1}>{queuereducer.dataPrint.type}</Typography>

@@ -26,6 +26,7 @@
     "redux": "^4.2.1",
     "scss": "^0.2.4"
   },
+  "homepage": "http://localhost/queue-system/",
   "devDependencies": {
     "@types/react": "^18.0.27",
     "@types/react-color": "^3.0.6",

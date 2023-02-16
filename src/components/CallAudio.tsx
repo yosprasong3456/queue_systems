@@ -29,13 +29,13 @@ const CallAudio = (props: Props) => {
   if(params){
     if(props.soundConfig == '1'){
       console.log('sound = 1')
-      const audio = new Audio("/public/audio/call.mp3");
-      const audio1 = new Audio(`/public/audio/${params.queue_no.charAt(0)}.mp3`);
-      const audio2 = new Audio(`/public/audio/${params.queue_no.charAt(1)}.mp3`);
-      const audio3 = new Audio(`/public/audio/${params.queue_no.charAt(2)}.mp3`);
-      const audio4 = new Audio(`/public/audio/${params.queue_no.charAt(3)}.mp3`);
-      const audio5 = new Audio(`/public/audio/${params.queue_type}.mp3`);
-      const service = new Audio(`/public/audio/service.mp3`);
+      const audio = new Audio("/audio/call.mp3");
+      const audio1 = new Audio(`/audio/${params.queue_no.charAt(0)}.mp3`);
+      const audio2 = new Audio(`/audio/${params.queue_no.charAt(1)}.mp3`);
+      const audio3 = new Audio(`/audio/${params.queue_no.charAt(2)}.mp3`);
+      const audio4 = new Audio(`/audio/${params.queue_no.charAt(3)}.mp3`);
+      const audio5 = new Audio(`/audio/${params.queue_type}.mp3`);
+      const service = new Audio(`/audio/service.mp3`);
   
       audio.play();
       audio.addEventListener('ended',function(){
@@ -93,7 +93,7 @@ const CallAudio = (props: Props) => {
   </DialogTitle> */}
         <DialogContent style={{ textAlign: "center", color: "black" }}>
           {/* <DialogContentText > */}
-            <img src="/src/assets/fulludch.png" width={450} />
+            <img src="/fulludch.png" width={450} />
             <Box>
             <Typography variant="h3" padding={2} fontWeight={800}>ขอเชิญหมายเลข</Typography>
             <Typography fontSize={240} fontWeight={800}>{queuereducer.showQueue.queue_no}</Typography>

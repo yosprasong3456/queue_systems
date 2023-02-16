@@ -72,7 +72,7 @@ const QueueHome = (props: Props) => {
                   </Grid>
                   <Grid item xs={2}>
                     <img
-                      src="/src/assets/click.gif"
+                      src="/public/click.gif"
                       width={80}
                       style={{ marginTop: 15 }}
                     />

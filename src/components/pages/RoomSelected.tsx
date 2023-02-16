@@ -58,13 +58,13 @@ const RoomSelected = (props: Props) => {
     if (params) {
       if (configReducer.soundConfig.actived == "0") {
         console.log('sound = 0')
-        const audio = new Audio("/src/audio/call.mp3");
-        const audio1 = new Audio(`/src/audio/${params.queue_no.charAt(0)}.mp3`);
-        const audio2 = new Audio(`/src/audio/${params.queue_no.charAt(1)}.mp3`);
-        const audio3 = new Audio(`/src/audio/${params.queue_no.charAt(2)}.mp3`);
-        const audio4 = new Audio(`/src/audio/${params.queue_no.charAt(3)}.mp3`);
-        const audio5 = new Audio(`/src/audio/${params.queue_type}.mp3`);
-        const service = new Audio(`/src/audio/service.mp3`);
+        const audio = new Audio("/public/audio/call.mp3");
+        const audio1 = new Audio(`/public/audio/${params.queue_no.charAt(0)}.mp3`);
+        const audio2 = new Audio(`/public/audio/${params.queue_no.charAt(1)}.mp3`);
+        const audio3 = new Audio(`/public/audio/${params.queue_no.charAt(2)}.mp3`);
+        const audio4 = new Audio(`/public/audio/${params.queue_no.charAt(3)}.mp3`);
+        const audio5 = new Audio(`/public/audio/${params.queue_type}.mp3`);
+        const service = new Audio(`/public/audio/service.mp3`);
 
         audio.play();
         audio.addEventListener("ended", function () {
